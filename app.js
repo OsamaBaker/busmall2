@@ -8,7 +8,7 @@ let rightIndex;
 
 let userAttemptsCounter = 0;
 
-let maxAttempts = 10;
+let maxAttempts = 25;
 
 
 function Product(productName, path){
@@ -96,5 +96,12 @@ function handleUserClick(event){
             alert('please click on an image');
             userAttemptsCounter--;
         }
+    } else if(userAttemptsCounter >= maxAttempts) {
+        container.removeEventListener('click', handleUserClick);
+        let resultButtonDiv = document.getElementById('resultButton')
+         let resultButton = document.createElement('button');
+         resultButtonDiv.appendChild(resultButton);
+         resultButton.setAttribute('name', 'View Results')
+
     }
 }
